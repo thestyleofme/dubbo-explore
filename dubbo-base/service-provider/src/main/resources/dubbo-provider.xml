@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://dubbo.apache.org/schema/dubbo
+       http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <dubbo:annotation package="com.github.thestyleofme.dubbo.provider"/>
+
+    <dubbo:application name="service-provider" owner="isaac"/>
+    <dubbo:registry id="r1"
+                    address="zookeeper://127.0.0.1:2181"
+                    timeout="10000"/>
+    <dubbo:protocol name="dubbo" port="20880"/>
+
+    <bean id="helloService" class="com.github.thestyleofme.dubbo.provider.service.impl.HelloServiceImpl"/>
+    <dubbo:service ref="helloService"
+                   interface="com.github.thestyleofme.dubbo.api.service.HelloService"/>
+
+</beans>
