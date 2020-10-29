@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ConsumerDemo {
 
-    @DubboReference
+    @DubboReference(loadbalance = "onlyFirst")
     private HelloService helloService;
 
     public String sayHello(String name){

@@ -22,9 +22,9 @@ public class ConsumerApplication {
                 new ClassPathXmlApplicationContext("classpath:dubbo-consumer.xml");
         context.start();
         ConsumerDemo consumerDemo = context.getBean(ConsumerDemo.class);
-        while(true){
-            System.out.println(consumerDemo.sayHello("world"));
+        while (true) {
             System.in.read();
+            System.out.println(consumerDemo.sayHello("world"));
         }
     }
 

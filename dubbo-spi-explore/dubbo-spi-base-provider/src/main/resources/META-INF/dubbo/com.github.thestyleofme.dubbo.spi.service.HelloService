@@ -1,0 +1,2 @@
+human=com.github.thestyleofme.dubbo.spi.service.impl.HumanHelloServiceImpl
+dog=com.github.thestyleofme.dubbo.spi.service.impl.DogHelloServiceImpl

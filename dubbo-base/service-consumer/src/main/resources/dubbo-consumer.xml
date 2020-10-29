@@ -24,10 +24,10 @@
                     timeout="10000"/>
     <dubbo:protocol name="dubbo" port="20890"/>
 
-    <dubbo:consumer timeout="2000" check="false"/>
+    <!--<dubbo:consumer timeout="2000" check="false"/>-->
+    <dubbo:consumer timeout="10000" check="false"/>
     <dubbo:reference id="helloService"
                      interface="com.github.thestyleofme.dubbo.api.service.HelloService"
-                     retries="1"
-                     mock="com.github.thestyleofme.dubbo.consumer.mock.HelloServiceMockImpl"/>
+                     retries="1"/>
 
 </beans>

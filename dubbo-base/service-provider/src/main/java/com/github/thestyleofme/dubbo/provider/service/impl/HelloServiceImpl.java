@@ -1,7 +1,5 @@
 package com.github.thestyleofme.dubbo.provider.service.impl;
 
-import java.util.concurrent.TimeUnit;
-
 import com.github.thestyleofme.dubbo.api.service.HelloService;
 import org.apache.dubbo.config.annotation.DubboService;
 
@@ -18,12 +16,12 @@ public class HelloServiceImpl implements HelloService {
 
     @Override
     public String sayHello(String name) {
-        try {
-            // 模仿接口超时
-            TimeUnit.SECONDS.sleep(2000L);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-        return "hello, " + name;
+        // try {
+        //     // 模仿接口超时
+        //     TimeUnit.SECONDS.sleep(2000L);
+        // } catch (InterruptedException e) {
+        //     Thread.currentThread().interrupt();
+        // }
+        return "hello1, " + name;
     }
 }
