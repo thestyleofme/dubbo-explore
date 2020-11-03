@@ -23,6 +23,7 @@
         <module>dubbo-spi-explore</module>
         <module>dubbo-spi-filter</module>
         <module>dubbo-spi-loadbalance</module>
+        <module>dubbo-spi-threadpool</module>
     </modules>
 
     <dependencies>

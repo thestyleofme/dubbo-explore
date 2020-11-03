@@ -27,7 +27,8 @@
     <!--<dubbo:consumer timeout="2000" check="false"/>-->
     <dubbo:consumer timeout="10000" check="false"/>
     <dubbo:reference id="helloService"
-                     interface="com.github.thestyleofme.dubbo.api.service.HelloService"
-                     retries="1"/>
+                     interface="com.github.thestyleofme.dubbo.api.service.HelloService">
+        <dubbo:method name="sayHello" async="true"/>
+    </dubbo:reference>
 
 </beans>

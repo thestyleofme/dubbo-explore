@@ -1,8 +1,10 @@
 package com.github.thestyleofme.dubbo.consumer;
 
 import java.io.IOException;
+import java.util.concurrent.CompletableFuture;
 
 import com.github.thestyleofme.dubbo.consumer.bean.ConsumerDemo;
+import org.apache.dubbo.rpc.RpcContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -24,7 +26,20 @@ public class ConsumerApplication {
         ConsumerDemo consumerDemo = context.getBean(ConsumerDemo.class);
         while (true) {
             System.in.read();
-            System.out.println(consumerDemo.sayHello("world"));
+            // String result = consumerDemo.sayHello("world", 2000L);
+            // System.out.println("result: " + result);
+
+            CompletableFuture<String> future = RpcContext.getContext().asyncCall(
+                    () -> consumerDemo.sayHello("world", 2000L));
+
+            // CompletableFuture<String> future = consumerDemo.sayHelloAsync("world", 2000L);
+            future.whenComplete((retValue, exception) -> {
+                if (exception == null) {
+                    System.out.println("async result: " + retValue);
+                } else {
+                    exception.printStackTrace();
+                }
+            });
         }
     }
 

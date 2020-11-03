@@ -1,5 +1,7 @@
 package com.github.thestyleofme.dubbo.consumer.bean;
 
+import java.util.concurrent.CompletableFuture;
+
 import com.github.thestyleofme.dubbo.api.service.HelloService;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.stereotype.Component;
@@ -15,10 +17,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class ConsumerDemo {
 
-    @DubboReference(loadbalance = "onlyFirst")
+    @DubboReference(loadbalance = "roundrobin")
+    // @DubboReference(loadbalance = "onlyFirst")
     private HelloService helloService;
 
-    public String sayHello(String name){
-       return helloService.sayHello(name);
+    public String sayHello(String name, Long timeToWait) {
+        return helloService.sayHello(name, timeToWait);
+    }
+
+    public CompletableFuture<String> sayHelloAsync(String name, Long timeToWait) {
+        return helloService.sayHelloAsync(name, timeToWait);
     }
 }
