@@ -1,0 +1,1 @@
+transportIpFilter=com.github.thestyleofme.dubbo.filter.TransportIpFilter

@@ -24,6 +24,9 @@
         <module>dubbo-spi-filter</module>
         <module>dubbo-spi-loadbalance</module>
         <module>dubbo-spi-threadpool</module>
+        <module>dubbo-ip-filter</module>
+        <module>dubbo-filter-demo</module>
+        <module>dubbo-tp-monitor-filter</module>
     </modules>
 
     <dependencies>
@@ -31,7 +34,7 @@
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
+            <version>1.2.16</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>

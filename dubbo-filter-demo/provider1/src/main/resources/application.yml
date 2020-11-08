@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: provider1
+
+dubbo:
+  scan:
+    base-packages: com.github.thestyleofme.dubbo.filter
+  protocol:
+    name: dubbo
+    port: -1
+  registry:
+    address: zookeeper://127.0.0.1:2181
+    file: ${user.home}/dubbo-cache/${spring.application.name}/dubbo.cache

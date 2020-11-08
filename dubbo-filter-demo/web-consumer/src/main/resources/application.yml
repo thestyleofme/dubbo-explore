@@ -1,0 +1,10 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: web-consumer
+
+dubbo:
+  registry:
+    address: zookeeper://127.0.0.1:2181
+    file: ${user.home}/dubbo-cache/${spring.application.name}/dubbo.cache
